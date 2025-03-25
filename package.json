@@ -1,7 +1,7 @@
 {
   "name": "codeeditor-kit",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "packageManager": "pnpm@10.6.2",
   "description": "Used for quickly launching popular code editors",
   "author": "Hairyf <wwu710632@gmail.com>",
