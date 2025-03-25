@@ -32,6 +32,11 @@ export class Codeeditor<T = any> {
     options.files = options.files ?? {}
     options.template = options.template ?? 'node'
 
+    options.files['package.json'] = merges(
+      { content: options.files['package.json'] || {} },
+      { content: options.package || {} },
+    )
+
     for (const file of Object.values(options.files))
       file.isBinary = file.isBinary ?? false
     return {
