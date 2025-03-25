@@ -6,7 +6,9 @@ export default defineBuildConfig({
   ],
   declaration: 'node16',
   clean: true,
+  failOnWarn: false,
   rollup: {
+    emitCJS: true,
     inlineDependencies: [
       '@antfu/utils',
     ],

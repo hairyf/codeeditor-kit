@@ -3,6 +3,9 @@ packages:
   - docs
   - packages/*
   - examples/*
+catalog:
+  '@stackblitz/sdk': ^1.11.0
+  codesandbox: ^2.2.3
 catalogs:
   cli:
     '@antfu/eslint-config': ^4.10.1
