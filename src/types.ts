@@ -1,3 +1,5 @@
+import type { parsers } from './parser'
+
 export interface PackageJSON {
   name?: string
   version?: string
@@ -19,10 +21,9 @@ export interface EditorExternals {
   js?: string[]
 }
 
-export type EditorType = 'codesandbox' | 'stackblitz'
+export type EditorType = keyof typeof parsers
 
 export interface EditorConfig {
-
   /**
    * @apply codesandbox, stackblitz
    *
@@ -89,6 +90,10 @@ export interface EditorResolver<T> {
 }
 
 export interface CodeeditorOptions<T> {
+  /**
+   * @description enable editors, default all editors
+   */
+  editors?: EditorType | EditorType[]
   globals?: EditorConfig
   resolve?: EditorResolver<T>
 }

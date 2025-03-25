@@ -5,7 +5,19 @@ import { merges } from './util'
 export class Codeeditor<T = any> {
   public $resolve: EditorResolver<T>
   public $globals: EditorConfig
+  public $editors: (keyof typeof parsers)[]
   constructor(options: CodeeditorOptions<T>) {
+    if (options.editors) {
+      if (Array.isArray(options.editors)) {
+        this.$editors = options.editors
+      }
+      else {
+        this.$editors = [options.editors]
+      }
+    }
+    else {
+      this.$editors = Object.keys(parsers) as (keyof typeof parsers)[]
+    }
     this.$resolve = options.resolve || (() => ({}))
     this.$globals = options.globals || {}
   }
@@ -30,6 +42,9 @@ export class Codeeditor<T = any> {
   }
 
   open(editor: keyof typeof parsers, params: T) {
+    if (!this.$editors.includes(editor))
+      throw new Error(`Editor "${editor}" is not enabled`)
+
     return parsers[editor](this.resolve(params))
   }
 }
