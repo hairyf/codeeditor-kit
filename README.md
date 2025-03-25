@@ -81,7 +81,7 @@ codeeditor.open('jsfiddle', { message: 'Hello, JSFiddle' })
 
 ## License
 
-[MIT](./LICENSE) License © [Hairyf](https://github.com/antfu)
+[MIT](./LICENSE) License © [Hairyf](https://github.com/hairyf)
 
 <!-- Badges -->
 
